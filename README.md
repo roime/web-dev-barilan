@@ -6,3 +6,4 @@ Creating the environment:
 Run the programs:
 # To run the unit test, run from the project's directory the command: "python unit_test.py"
 # To run the web server, run from the project's directory the command: "python web_server.py"
+# To run the integration test, first run the web server as described above, then run from the project's directory the command: "python integration_test.py"
