@@ -11,15 +11,15 @@ Run the programs:
 Building and running docker:
 # Clone this repository
 # Start from the parent folder of the repository and run 
-'''
+```
 sudo docker build [repository name]
-'''
+```
 # Than cd into the folder and run
-'''
+```
 sudo docker-compose build calculator
-'''
+```
 # Than to start the server and the service run
-'''
+```
 sudo docker-compose up
-'''
+```
 # Than you can access the service by opening the browser and going to 127.0.0.1:8080/login
