@@ -1,0 +1,29 @@
+version: '3'
+services:
+  calculator:
+    build: .
+  frontend:
+    image: "webdevtoolsandtech/currency-frontend"
+  backend:
+    image: "webdevtoolsandtech/currency-backend"
+    environment:
+      - REDIS_ADDRESS=redis-db:6379
+      - SESSION_SECRET="lalala"
+      - USER_SERVICE_ADDRESS=user-service:80
+      - FRONTEND_ADDRESS=frontend:80
+      - CALCULATOR_ADDRESS=calculator:5000
+    ports:
+      - "8080:80"
+    depends_on:
+      - redis-db
+      - calculator
+      - user-service
+  redis-db:
+    image: "redis:alpine"
+  user-service:
+    image: "webdevtoolsandtech/user-service"
+    environment:
+      - REDIS_ADDRESS=redis-db:6379
+    depends_on:
+      - redis-db
+
