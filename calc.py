@@ -197,7 +197,10 @@ class StateFactory():
         if self.json is None:
             return InitialState()
         else:
-            jsonObject = json.loads(self.json)
+            if type(self.json) is dict:
+                jsonObject = self.json
+            else:
+                jsonObject = json.loads(self.json)
             state = jsonObject['state']
             if state == InitialState.__name__:
                 return InitialState()
